@@ -47,7 +47,20 @@ end
 
 get '/sessions/:user_id/surveys/new'
   @user = User.find(params[:user_id])
+  @survey = Survey.create()
   erb :new
 end
 
+post '/question' do
+  new_question = Question.create(question: params[:question])
+  if request.xhr?
+    erb :_question, layout:false, locals: {question: new_question}
+  else
+    redirect "/sessions/#{current_user.id}/surveys/new"
+  end
+end
+
+post '/sessions/:user_id/surveys/:survey_id'
+
+end
 
