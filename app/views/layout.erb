@@ -21,7 +21,7 @@
 <body>
   <div id="navigation">
     <!-- please align signed in as and user name correctly and put sign out button to the right most space -->
-   <ul>
+   <ul id="nav">
     <% if current_user %>
     <li>Signed in as: <a href="/sessions/<%= current_user.id %>/profile"><%= current_user.username %></a></li>
 

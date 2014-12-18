@@ -1,0 +1,93 @@
+/** {
+  padding: 0;
+  margin: 0;
+}*/
+
+body {
+   background: #f4f1e5;
+   color: #544738;
+   /*font-family: helvetica, sans-serif;*/
+}
+
+
+.container {
+  margin: 20px auto;
+  width: 800px;
+  text-align: center;
+  /*padding-top: 20px;*/
+  /*background-color: red;*/
+}
+
+ul {
+  list-style-type: none;
+}
+
+#title {
+  /*background-color: pink;*/
+  clear: both;
+  padding-top: 70px;
+  /*text-align: center;*/
+}
+
+#sign-up {
+  /*background-color: blue;*/
+  clear: both;
+}
+
+#log-in {
+  /*background-color: green;*/
+}
+
+/*.label {
+  background-color: blue;
+}*/
+
+ul li {
+    /*float: left;*/
+    list-style: none;
+    margin-right: 1em;
+    font-family: "3Dumb";
+    font-size: 50px;
+    /*padding: 12px;*/
+}
+
+li a {
+    color: #544738;
+    text-decoration: none;
+    float: left;
+    font-size: 25px;
+    padding: 12px;
+}
+
+li a:hover {
+    color: #33CCCC;
+    /*transition*/
+    -webkit-transition:All .4s ease;
+    -moz-transition:All .5s ease;
+    -o-transition:All .5s ease;
+
+    /*transform*/
+    -webkit-transform: rotate(-10deg) scale(1.2);
+    -moz-transform: rotate(-10deg) scale(1.2);
+    -o-transform: rotate(-10deg) scale(1.2);
+}
+
+.submit {
+  font-family: "3Dumb";
+  font-size: 20px;
+}
+
+.submit:hover {
+  color: #33CCCC;
+  -webkit-transform: rotate(5deg) scale(1.2);
+  -moz-transform: rotate(5deg) scale(1.2);
+  -o-transform: rotate(5deg) scale(1.2);
+}
+
+@font-face {
+    font-family: '3Dumb';
+    src: url('3Dumb-webfont.eot');
+    src: local('‚ò∫'), url('3Dumb-webfont.woff') format('woff'), url('3Dumb-webfont.ttf') format('truetype'), url('3Dumb-webfont.svg#webfontHNAi9IoX') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
