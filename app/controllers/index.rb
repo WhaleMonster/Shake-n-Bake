@@ -12,14 +12,13 @@ end
 post '/sessions' do
   if user = User.authenticate(params[:user])
     session[:user_id] = user.id
-    redirect "/sessions/#{user.id}"
+    redirect "/sessions/#{user.id}/profile"
   else
     erb :index
   end
 end
 
 # ------------- USERS ---------------
-
 # directs the user to the the index page to sign up
 get '/users/new' do
   erb :index
@@ -30,9 +29,37 @@ post '/users' do
   user = User.create(params[:user])
   if user.save
     session[:user_id] = user.id
-    redirect "/sessions/#{user.id}" # (need to implement user url page)
+    redirect "/sessions/#{user.id}/profile" # (need to implement user url page)
   else
     erb :index
+  end
+end
+
+# ----------- USER PROFILE PAGE ----------------
+
+get '/sessions/:user_id/profile'
+  @user = User.find(params[:user_id])
+  @surveys = @user.surveys
+  erb :profile
+end
+
+# ------------ CREATE NEW SURVEY PAGE -----------
+
+get '/sessions/:user_id/surveys/new'
+  @user = User.find(params[:user_id])
+  erb :new
+end
+
+post '/sessions/:user_id/surveys/:survey_id'
+
+end
+
+post '/question' do
+  new_question = Question.create(question: params[:question])
+  if request.xhr?
+    erb :_question, layout:false, locals: {question: new_question}
+  else
+    redirect "/sessions/#{current_user.id}/surveys/new"
   end
 end
 

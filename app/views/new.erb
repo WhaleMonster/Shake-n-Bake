@@ -1,0 +1,34 @@
+<!-- incorporate AJAX to show new survey question added live -->
+
+<h3>Create New Survey</h3>
+
+<form action="/entries" method="post">
+  <label for="title">Title:</label>
+  <input type="text" name="title" placeholder="Survey Title">
+  <ol>
+    <li>
+  <input type="text" name="question" placeholder="What is your question...">
+  <input type="submit" value="create question">
+    </li>
+  </ol>
+  <input type="submit" value="Create Title">
+</form>
+
+  <br>
+  <br>
+
+<div class='question-container'>
+  <% @survey.questions.each do |question| %>
+    <%= erb :_question, locals: {question: question} %>
+  <% end %>
+</div>
+
+<form action="/questions" id="question" method="post">
+
+</form>
+
+  <br>
+  <br>
+<form action="/entries" method="post">
+  <input type="submit" value="Create Survey">
+</form>
