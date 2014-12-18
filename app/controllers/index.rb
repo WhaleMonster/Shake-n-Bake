@@ -47,8 +47,11 @@ end
 
 get '/sessions/:user_id/surveys/new'
   @user = User.find(params[:user_id])
-  @survey = Survey.create()
   erb :new
+end
+
+post '/sessions/:user_id/surveys/:survey_id'
+
 end
 
 post '/question' do
@@ -58,9 +61,5 @@ post '/question' do
   else
     redirect "/sessions/#{current_user.id}/surveys/new"
   end
-end
-
-post '/sessions/:user_id/surveys/:survey_id'
-
 end
 
