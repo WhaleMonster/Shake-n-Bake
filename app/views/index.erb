@@ -10,7 +10,6 @@
     <h1>
       Sign Up
     </h1>
-
     <p>
     <form method="post" action="/users">
       <label class="label" for="name"></label>
@@ -26,15 +25,14 @@
       <div class="submit"><input type="submit" value="Sign Me Up!"></div>
     </form>
     </p>
-
   </div>
+
   <hr id="indexhr">
 
   <div id="log-in">
     <h1>
       Log In
     </h1>
-
     <p>
     <form method="post" action="/sessions">
       <label class="label" for="email"></label>
@@ -54,3 +52,17 @@
   </div>
 
 </div>
+
+<h2>Latest Surveys:</h2>
+<div id="show-survey">
+  <ul>
+    <% @surveys.each do |survey| %>
+      <li>
+        <a href= "/surveys/<%= survey.id %>"><%= survey.title %></a>
+        Created at: <%= survey.created_at %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+

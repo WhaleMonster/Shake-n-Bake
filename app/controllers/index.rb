@@ -1,4 +1,5 @@
 get "/" do
+  @surveys = Survey.all
   erb :index
 end
 
@@ -150,7 +151,3 @@ post '/surveys/:survey_id' do
   end
   redirect '/?merci=true'
 end
-
-
-
-
