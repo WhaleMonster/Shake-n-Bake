@@ -74,11 +74,19 @@ get '/sessions/:user_id/surveys/:survey_id/edit' do
   erb :edit
 end
 
-delete '/sessions/:user_id/:survey_id/1/edit' do
-  question_to_delete = Question.find(params[:questionId])
-  puts question_to_delete
-  question_to_delete.destroy
+# delete a specific survey link
 
+delete "/sessions/:user_id/surveys/:survey_id" do
+  survey_to_delete = Survey.find(params[:surveyId])
+  survey_to_delete.destroy
+end
+
+
+# delete a question from a specific survey
+
+delete '/sessions/:user_id/questions/:question_id' do
+  question_to_delete = Question.find(params[:question_id])
+  question_to_delete.destroy
 end
 
 

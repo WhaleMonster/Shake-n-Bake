@@ -11,10 +11,8 @@
     <% @survey.questions.each do |question| %>
     <li data-question-id="<%= question.id %>">
       <input type="text" name="question<%= question.id %>" value="<%= question.question %>" />
-      <input type="hidden" name="<%= question.id %>" />
-       <input type="hidden" name="<%= @user.id %>" />
-       <input type="hidden" name="<%= @survey.id %>" />
-      <input type="button" class="deleteQuestion" value="Delete" />
+      <a href="/sessions/<%= @user.id %>/questions/<%= question.id %>" class="deleteQuestion" >Delete</a>
+
     </li>
     <% end %>
   </ol>
