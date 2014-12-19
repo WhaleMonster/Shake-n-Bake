@@ -9,7 +9,7 @@ post '/sessions' do
     session[:user_id] = user.id
     redirect "/sessions/#{user.id}/profile"
   else
-    erb :index
+    redirect '/'
   end
 end
 
@@ -20,7 +20,8 @@ post '/users' do
     session[:user_id] = user.id
     redirect "/sessions/#{user.id}/profile" # (need to implement user url page)
   else
-    erb :index
+    @output = user.errors.full_messages
+    redirect '/'
   end
 end
 
@@ -71,17 +72,11 @@ get '/sessions/:user_id/surveys/:survey_id/edit' do
 end
 
 # ------------- USERS ---------------
-post '/question' do
-  # new_question = Question.create(question: params[:question])
-  # if request.xhr?
-  #   erb :_question, layout:false, locals: {question: new_question}
-  # else
-  #   redirect "/sessions/#{current_user.id}/surveys/new"
-  # end
-end
 
+# Show survey results after user logged in
 get '/sessions/:user_id/surveys/:survey_id/results' do
-  "My name is Kevin and there's a part in muh pants"
+  @survey = Survey.find(params[:survey_id])
+  erb :result
 end
 
 get '/sessions/surveys/:survey_id' do
@@ -137,8 +132,6 @@ post '/surveys/:survey_id' do
   redirect '/'
   # should flash some message for thanking you taking the survey and here are some more survey you can take
 end
-
-
 
 
 
