@@ -13,9 +13,6 @@
   -->
   <link rel="stylesheet" href="/css/application.css">
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/application.js"></script>
-
   <title>Shake N' Bake Survey Portal</title>
 </head>
 <body>
@@ -23,7 +20,7 @@
     <!-- please align signed in as and user name correctly and put sign out button to the right most space -->
    <ul id="nav">
     <% if current_user %>
-    <li>Signed in as: <a href="/sessions/<%= current_user.id %>/profile"><%= current_user.username %></a></li>
+    <li>Signed in as: <a href="/<%= current_user.id %>/profile"><%= current_user.username %></a></li>
 
     <!-- create surveys link -->
     <li><a href="some route">Create New Surveys</a></li>
@@ -31,7 +28,7 @@
     <!-- view all surveys -->
     <li><a href="some route">View All Your Surveys</a></li>
 
-    <li><form id="sign-out" action="/sessions/<%= current_user.id %>" method="post">
+    <li><form id="sign-out" action="/<%= current_user.id %>/profile" method="post">
         <input name="_method" type="hidden" value="delete" />
         <input type="submit" value="Sign Out">
       </form>
@@ -43,5 +40,8 @@
     </ul>
   </div>
   <%= yield %>
+
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="/js/application.js"></script>
 </body>
 </html>
