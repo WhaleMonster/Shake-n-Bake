@@ -20,25 +20,62 @@ $(document).ready(function() {
   // });
 
 
+// when they hit delet button
+// runs a function that will delete from view
+// then call ajax and delete from teh database
 
-//   $("#surveyId delete").click(function(e) {
+// Delete each question from the survey
 
-//     e.preventDefault();
+  $("#survey_form a.deleteQuestion").click(function(e) {
+    e.preventDefault();
+    e.stopPropagation();
 
-//     var surveyId = $( this ).surveyId;
-//     var userId = $( this ).userId
 
-//   $.ajax({
-//     type: 'delete',
-//     url: "/" + userId + "/surveys/" + surveyId,
-//     datatype: "json",
-//   }).done( function(data){
 
-//     data.surveyId.remove();
+    var $target = $(e.target);
+    var $li = $target.closest('li');
+    var questionId = $li.data('questionId');
+    var $form = $target.closest('form');
 
-//   });
+    // console.log($(this).attr('href'));
 
-// });
+    $.ajax({
+      type: 'delete',
+      url: $(this).attr('href'),
+      data: {questionId: questionId}
+    }).done (function(response){
+      $li.remove();
+    });
+
+
+  });
+
+
+  // Delete each survey from the lsit
+
+  $("#listSurveys input.deleteSurvey").click(function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    var $target = $(e.target);
+    var $currentSurvey = $target.closest('ul');
+    var $form = $target.closest('form');
+    var surveyId = $form.data('surveyId');
+
+
+    $.ajax({
+      type: 'delete',
+      url: $form.attr("action"),
+      data: {surveyId: surveyId}
+    }).done (function(response){
+      $currentSurvey.remove();
+    });
+
+
+  });
+
+
+
 
 
 //   $("#surveyId edit").click(function(e) {
