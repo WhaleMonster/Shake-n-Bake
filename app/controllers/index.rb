@@ -101,8 +101,8 @@ end
 get '/sessions/surveys/:survey_id' do
 end
 
-get '/merci' do
-end
+# get '/merci' do
+# end
 
 # update the survey changes from edit page
 put '/sessions/:user_id/surveys/:survey_id' do
@@ -148,8 +148,7 @@ post '/surveys/:survey_id' do
       Response.create(response: params[key], question_id: question_id)
     end
   end
-  redirect '/'
-  # should flash some message for thanking you taking the survey and here are some more survey you can take
+  redirect '/?merci=true'
 end
 
 
