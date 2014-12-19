@@ -1,4 +1,5 @@
 get "/" do
+  @surveys = Survey.all
   erb :index
 end
 
@@ -73,25 +74,35 @@ get '/sessions/:user_id/surveys/:survey_id/edit' do
   erb :edit
 end
 
-# ------------- USERS ---------------
-post '/question' do
-  # new_question = Question.create(question: params[:question])
-  # if request.xhr?
-  #   erb :_question, layout:false, locals: {question: new_question}
-  # else
-  #   redirect "/sessions/#{current_user.id}/surveys/new"
-  # end
+# delete a specific survey link
+
+delete "/sessions/:user_id/surveys/:survey_id" do
+  survey_to_delete = Survey.find(params[:surveyId])
+  survey_to_delete.destroy
 end
 
+
+# delete a question from a specific survey
+
+delete '/sessions/:user_id/questions/:question_id' do
+  question_to_delete = Question.find(params[:question_id])
+  question_to_delete.destroy
+end
+
+
+# ------------- USERS ---------------
+
+# Show survey results after user logged in
 get '/sessions/:user_id/surveys/:survey_id/results' do
-  "My name is Kevin and there's a part in muh pants"
+  @survey = Survey.find(params[:survey_id])
+  erb :result
 end
 
 get '/sessions/surveys/:survey_id' do
 end
 
-get '/merci' do
-end
+# get '/merci' do
+# end
 
 # update the survey changes from edit page
 put '/sessions/:user_id/surveys/:survey_id' do
@@ -109,11 +120,11 @@ put '/sessions/:user_id/surveys/:survey_id' do
 end
 
 # delete the specific question (how to delete a question without refresh the page and redirect/AJAX)
-# delete '/sessions/:user_id/surveys/:survey_id/:question_id' do
-#   @question = Question.find(params[:question_id])
-#   @question.destroy
-#   redirect "/sessions/#{params[:user_id]}/surveys/#{params[:survey_id]}"
-# end
+delete '/sessions/:user_id/surveys/:survey_id/:question_id' do
+  @question = Question.find(params[:question_id])
+  @question.destroy
+  # redirect "/sessions/#{params[:user_id]}/surveys/#{params[:survey_id]}"
+end
 
 # delete the specific survey
 delete '/sessions/:user_id/surveys/:survey_id' do
@@ -137,12 +148,5 @@ post '/surveys/:survey_id' do
       Response.create(response: params[key], question_id: question_id)
     end
   end
-  redirect '/'
-  # should flash some message for thanking you taking the survey and here are some more survey you can take
+  redirect '/?merci=true'
 end
-
-
-
-
-
-
