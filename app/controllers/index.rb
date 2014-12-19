@@ -9,8 +9,6 @@ post '/sessions' do
     session[:user_id] = user.id
     redirect "/sessions/#{user.id}/profile"
   else
-    session["flash"] = []
-    session["flash"] << "Sorry, that combination is busted"
     erb :index
   end
 end
@@ -22,8 +20,6 @@ post '/users' do
     session[:user_id] = user.id
     redirect "/sessions/#{user.id}/profile" # (need to implement user url page)
   else
-    @output = user.errors.full_messages
-    session["flash"] = @output  
     erb :index
   end
 end
@@ -125,5 +121,25 @@ end
 
 # TODO
 # take survey page for non users and update responses
+get '/surveys/:survey_id' do
+  @survey = Survey.find(params[:survey_id])
+  erb :answer
+end
+
+post '/surveys/:survey_id' do
+  # find the question and shuffle in the answer for that question in the database
+  params.keys.each do |key|
+    if key.include?('answer')
+      question_id = key[6..-1].to_i
+      Response.create(response: params[key], question_id: question_id)
+    end
+  end
+  redirect '/'
+  # should flash some message for thanking you taking the survey and here are some more survey you can take
+end
+
+
+
+
 
 
