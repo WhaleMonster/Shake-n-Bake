@@ -203,14 +203,23 @@ li a {
   -o-transform: scale(1.2);
 }
 
+#edit {
+  font-family: "DaFont";
+  display: inline-block;
+  padding-bottom: 3px;
+  font-size: 25px;
+}
+
 #edit:hover {
   color: #33CCCC;
+  display: inline-block;
   -webkit-transform: scale(1.2);
   -moz-transform: scale(1.2);
   -o-transform: scale(1.2);
 }
 
 #delete {
+  font-family: "DaFont";
   font-size: 25px;
 }
 

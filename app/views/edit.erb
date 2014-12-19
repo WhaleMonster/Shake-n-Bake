@@ -1,4 +1,4 @@
-<div class="center">
+<div class="left">
   <h1>Edit Survey</h1>
 
 <form id="survey_form" action="/sessions/<%= @user.id %>/surveys/<%= @survey.id %>" method="post">
@@ -12,14 +12,14 @@
     <% @survey.questions.each do |question| %>
     <li data-question-id="<%= question.id %>">
       <input type="text" name="question<%= question.id %>" value="<%= question.question %>" />
-      <a href="/sessions/<%= @user.id %>/questions/<%= question.id %>" class="deleteQuestion" >Delete</a>
+      <a href="/sessions/<%= @user.id %>/questions/<%= question.id %>" id="delete">Delete</a>
 
     </li>
     <% end %>
   </ol>
   <br>
   <br>
-  <input type="submit" value="Update Entry">
+  <input type="submit" value="Update Entry" id="update">
 
 </form>
 
