@@ -5,8 +5,10 @@
   <ul>
     <li><a href="/sessions/<%= @user.id %>/surveys/<%= survey.id %>">Title: <%= survey.title %></a></li>
     <li><a href="/sessions/<%= @user.id %>/surveys/<%= survey.id %>/results">Results</a></li>
-    <li><a href="/sessions/<%= @user.id %>/surveys/<%= survey.id %>/edit" id="edit">Edit</a></li>
-    <li><a href="link to delete survey" id="edit">Delete</a></li>
+    <li><a href="/sessions/<%= @user.id %>/surveys/<%= survey.id %>/edit">Edit</a></li>
+    <li><form action="/sessions/<%= @user.id %>/surveys/<%= survey.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete"></li>
   </ul>
 <% end %>
 </div>
