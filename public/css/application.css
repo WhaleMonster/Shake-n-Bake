@@ -1,6 +1,39 @@
 body {
-   background: #f4f1e5;
+   /*background: #f4f1e5;*/
+   background-image: url('http://i.stack.imgur.com/MtKUX.jpg');
    color: #544738;
+   font-family: 'DaFont';
+   animation: animatedBackground 80s linear infinite;
+  -moz-animation: animatedBackground 80s linear infinite;
+  -webkit-animation: animatedBackground 80s linear infinite;
+  -ms-animation: animatedBackground 80s linear infinite;
+  -o-animation: animatedBackground 80s linear infinite;
+}
+
+keyframes animatedBackground {
+  0% { background-position: 0 0; }
+  100% { background-position: -3000px 0; }
+}
+@-moz-keyframes animatedBackground {
+  0% { background-position: 0 0; }
+  100% { background-position: -3000px 0; }
+}
+@-webkit-keyframes animatedBackground {
+  0% { background-position: 0 0; }
+  100% { background-position: -3000px 0; }
+}
+@-ms-keyframes animatedBackground {
+  0% { background-position: 0 0; }
+  100% { background-position: -3000px 0; }
+}
+@-o-keyframes animatedBackground {
+  0% { background-position: 0 0; }
+  100% { background-position: -3000px 0; }
+}
+
+
+a {
+  text-decoration: none;
 }
 
 .container {
@@ -8,6 +41,11 @@ body {
   width: 800px;
   text-align: center;
   /*background-color: red;*/
+}
+
+#nav a{
+  font-size: 30px;
+  margin-left: 10px;
 }
 
 ul {
@@ -30,17 +68,31 @@ ul {
   background-color: green;
 }*/
 
+#sign-up h1 {
+  font-family: 'DaFont';
+}
+
+#log-in h1 {
+  font-family: 'DaFont'
+}
+
 input {
   text-align: center;
   margin-bottom: 3px;
   /*background-color: #F1FFFF;*/
+  font-family: avenir;
+}
+
+@font-face {
+    font-family: 'DaFont';
+    src: url('3Dumb.ttf');
 }
 
 ul li {
     /*float: left;*/
     list-style: none;
     margin-right: 1em;
-    font-family: "3Dumb";
+    font-family: 'DaFont';
     font-size: 50px;
     /*padding: 12px;*/
 }
@@ -84,7 +136,7 @@ li a {
 }
 
 .submit {
-  font-family: "3Dumb";
+  font-family: "DaFont";
   font-size: 20px;
 }
 
@@ -95,13 +147,6 @@ li a {
   -o-transform: rotate(5deg) scale(1.2);
 }
 
-@font-face {
-    font-family: '3Dumb';
-    src: url('3Dumb-webfont.eot');
-    src: local('‚ò∫'), url('3Dumb-webfont.woff') format('woff'), url('3Dumb-webfont.ttf') format('truetype'), url('3Dumb-webfont.svg#webfontHNAi9IoX') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
 
 .survey {
   float: left;
@@ -111,6 +156,13 @@ li a {
   position: relative;
   top: 25px;
   float: left;
-
 }
 
+.sign_out {
+  float:right;
+  width: 80px;
+  height: 40px;
+  font-size: 16px;
+  margin-top: -4.5%;
+  margin-right: -3%; 
+}
