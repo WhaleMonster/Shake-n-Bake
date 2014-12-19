@@ -35,6 +35,12 @@ post '/users' do
   end
 end
 
+# signs out a user and detroys the session
+delete '/sessions/:user_id/profile' do
+  session[:user_id] = nil
+  redirect '/'
+end
+
 # ----------- USER PROFILE PAGE ----------------
 
 get '/sessions/:user_id/profile' do
@@ -61,6 +67,14 @@ post '/sessions/:user_id/surveys' do
 
 end
 # ------------- USERS ---------------
+post '/question' do
+  # new_question = Question.create(question: params[:question])
+  # if request.xhr?
+  #   erb :_question, layout:false, locals: {question: new_question}
+  # else
+  #   redirect "/sessions/#{current_user.id}/surveys/new"
+  # end
+end
 
 delete '/sessions/:user_id/profile' do
   session[:user_id] = nil
@@ -87,8 +101,6 @@ end
 
 get '/merci' do
 end
-
-
 
 
 
