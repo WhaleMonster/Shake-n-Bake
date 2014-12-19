@@ -1,13 +1,21 @@
-<h3>Title: <%= @survey.title %></h3>
+<div class="container">
 
-<ol>
-  <% @survey.questions.each do |question| %>
-  <li><%= question.question %></li>
-  <% end %>
-</ol>
+  <h3>Title: <%= @survey.title %></h3>
 
-<a href="/sessions/<%= @user.id %>/surveys/<%= @survey.id %>/edit">Edit</a>
-<form action="/sessions/<%= @user.id %>/surveys/<%= @survey.id %>" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Delete">
-</form>
+  <div class="outer-survey-list">
+    <div class="inner-survey-list">
+      <ol>
+        <% @survey.questions.each do |question| %>
+        <li><%= question.question %></li>
+        <% end %>
+      </ol>
+    </div>
+  </div>
+
+  <a href="/sessions/<%= @user.id %>/surveys/<%= @survey.id %>/edit" id="edit">Edit</a>
+  <form action="/sessions/<%= @user.id %>/surveys/<%= @survey.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Delete" id="delete">
+  </form>
+
+</div>
