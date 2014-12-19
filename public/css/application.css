@@ -31,6 +31,10 @@ keyframes animatedBackground {
   100% { background-position: -3000px 0; }
 }
 
+@font-face {
+    font-family: 'DaFont';
+    src: url('3Dumb.ttf');
+}
 
 a {
   text-decoration: none;
@@ -80,12 +84,11 @@ input {
   text-align: center;
   margin-bottom: 3px;
   /*background-color: #F1FFFF;*/
-  font-family: avenir;
+  /*font-family: avenir;*/
 }
 
-@font-face {
-    font-family: 'DaFont';
-    src: url('3Dumb.ttf');
+button {
+  margin-bottom: 3px;
 }
 
 ul li {
@@ -142,9 +145,59 @@ li a {
 
 .submit:hover {
   color: #33CCCC;
-  -webkit-transform: rotate(5deg) scale(1.2);
-  -moz-transform: rotate(5deg) scale(1.2);
-  -o-transform: rotate(5deg) scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
+}
+
+#submit {
+  font-family: "DaFont";
+  font-size: 20px;
+}
+
+#submit:hover {
+  color: #33CCCC;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
+}
+
+#addQuestion {
+  font-family: "DaFont";
+  font-size: 20px;
+}
+
+#addQuestion:hover {
+  color: #33CCCC;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
+}
+
+#edit {
+  font-family: "3Dumb";
+  font-size: 20px;
+  padding-bottom: 3px;
+  text-decoration: none;
+}
+
+#edit:hover {
+  color: #33CCCC;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
+}
+
+#delete {
+  font-family: "Da";
+  font-size: 20px;
+}
+
+#delete:hover {
+  color: #33CCCC;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
 }
 
 .survey {
@@ -155,6 +208,16 @@ li a {
   position: relative;
   top: 25px;
   float: left;
+}
+
+.outer-survey-list {
+  width: 100%;
+}
+
+.inner-survey-list {
+  width: 75%;
+  margin: 0 auto;
+  text-align: left;
 }
 
 .sign_out {

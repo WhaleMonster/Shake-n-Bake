@@ -11,7 +11,7 @@ post '/sessions' do
   else
     session["flash"] = []
     session["flash"] << "Sorry, that combination is busted"
-    erb :index
+    redirect '/'
   end
 end
 
@@ -23,8 +23,8 @@ post '/users' do
     redirect "/sessions/#{user.id}/profile" # (need to implement user url page)
   else
     @output = user.errors.full_messages
-    session["flash"] = @output  
-    erb :index
+    session["flash"] = @output
+    redirect '/'
   end
 end
 
