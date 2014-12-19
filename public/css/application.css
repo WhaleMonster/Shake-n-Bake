@@ -91,3 +91,15 @@ li a:hover {
     font-weight: normal;
     font-style: normal;
 }
+
+.survey {
+  float: left;
+}
+
+#right_side {
+  position: relative;
+  top: 25px;
+  float: left;
+
+}
+

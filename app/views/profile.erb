@@ -1,6 +1,6 @@
 <!-- - Create Survey Button on top
 - list of surveys each with edit, delete and view results button -->
-<a href="direct to create new survey route">Create New Survey</a>
+<a href="/sessions/<%= @user.id %>/surveys/new">Create New Survey</a>
 <% @surveys.each do |survey| %>
   <ul>
     <li><%= survey.title %></li>

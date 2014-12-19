@@ -37,7 +37,7 @@ end
 
 # ----------- USER PROFILE PAGE ----------------
 
-get '/sessions/:user_id/profile'
+get '/sessions/:user_id/profile' do
   @user = User.find(params[:user_id])
   @surveys = @user.surveys
   erb :profile
@@ -45,21 +45,28 @@ end
 
 # ------------ CREATE NEW SURVEY PAGE -----------
 
-get '/sessions/:user_id/surveys/new'
+get '/sessions/:user_id/surveys/new' do
   @user = User.find(params[:user_id])
   erb :new
 end
 
-post '/sessions/:user_id/surveys/:survey_id'
+post '/sessions/:user_id/surveys' do
+  new_survey = Survey.create(title: params[:title])
+  current_user.surveys << new_survey
+  params.keys.each do |key|
+    if key.include?('question')
+     Question.create(question: params[key], survey_id: new_survey.id)
+    end
+  end
 
 end
 
 post '/question' do
-  new_question = Question.create(question: params[:question])
-  if request.xhr?
-    erb :_question, layout:false, locals: {question: new_question}
-  else
-    redirect "/sessions/#{current_user.id}/surveys/new"
-  end
+  # new_question = Question.create(question: params[:question])
+  # if request.xhr?
+  #   erb :_question, layout:false, locals: {question: new_question}
+  # else
+  #   redirect "/sessions/#{current_user.id}/surveys/new"
+  # end
 end
 
