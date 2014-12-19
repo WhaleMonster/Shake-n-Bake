@@ -23,10 +23,10 @@
     <li>Currently embodying: <%= current_user.username %></li>
 
     <!-- create surveys link -->
-    <li><a href="/sessions/<%= @user.id %>/surveys/new">Create New Surveys</a></li>
+    <li><a href="/sessions/<%= current_user.id %>/surveys/new">Create New Surveys</a></li>
 
     <!-- view all surveys -->
-    <li><a href='/sessions/<%= @user.id %>/profile'>View All Your Surveys</a></li>
+    <li><a href='/sessions/<%= current_user.id %>/profile'>View All Your Surveys</a></li>
 
     <li><form id="sign-out" action="/sessions/<%= current_user.id %>/profile" method="post">
         <input name="_method" type="hidden" value="delete" />
