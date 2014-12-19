@@ -1,48 +1,50 @@
-<div id="container">
-  <!-- please make below center in the page -->
+<div class="container">
     <ul>
-      <li>Welcome To Shake N' Bake</li>
+      <li id="title">Welcome to Shake N' Bake</li>
     </ul>
-  <div id="landing">
-    <h4>
+  <div id="sign-up">
+    <h1>
       Sign Up
-    </h4>
-        <p>
-    <form id="sign-up" method="post" action="/users">
-      <label class="label" for="name">Username: </label>
-      <input type="text" name="user[username]" placeholder="average joe...">
+    </h1>
+    <p>
+    <form method="post" action="/users">
+      <label class="label" for="name"></label>
+      <input type="text" name="username" placeholder="User Name">
       <br>
-      <label class="label" for="email">Email: </label>
-      <input type="email" name="user[email]" placeholder="e.g., me@example.com">
+      <label class="label" for="email"></label>
+      <input type="email" name="email" placeholder="Email">
       <br>
-      <label class="label" for="password">Password: </label>
-      <input type="password" name="user[password]" placeholder="Please enter 6 or more characters">
+      <label class="label" for="password"></label>
+      <input type="password" name="password" placeholder="Password">
       <br>
       <br>
       <div class="submit"><input type="submit" value="Sign Me Up!"></div>
-      <!-- please fix button color to increase contrast and fix border radius for all buttons -->
-      <!-- fix text color in form input -->
     </form>
     </p>
   </div>
   <hr id="indexhr">
-  <div id="landing">
-    <h4>
+  <div id="log-in">
+    <h1>
       Log In
-    </h4>
+    </h1>
     <p>
-    <form id="sign-in" method="post" action="/sessions">
-      <label class="label" for="email">Email: </label>
-      <input type="email" name="user[email]" placeholder="e.g., me@example.com">
+    <form method="post" action="/sessions">
+      <label class="label" for="email"></label>
+      <input type="email" name="email" placeholder="Email">
       <br>
-      <label class="label" for="password">Password: </label>
-      <input type="password" name="user[password]" placeholder="Please enter 6 or more characters">
+      <label class="label" for="password"></label>
+      <input type="password" name="password" placeholder="Password">
       <br>
       <br>
       <div class="submit"><input type="submit" value="Sign Me In!"></div>
-
     </form>
     </p>
   </div>
-
+  <div class="error">
+  <% if session["flash"].length >= 1 %>
+    <% session["flash"].each do |error| %>
+      <%= error + ", bruh." %>
+    <% end %>
+  <% end %>
+</div>
 </div>

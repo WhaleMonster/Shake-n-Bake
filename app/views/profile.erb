@@ -1,0 +1,11 @@
+<!-- - Create Survey Button on top
+- list of surveys each with edit, delete and view results button -->
+<% @surveys.each do |survey| %>
+  <ul>
+    <li><a href="/sessions/<%= @user.id %>/surveys/<%= survey.id %>"><%= survey.title %></a></li>
+    <li><a href="/sessions/<%= @user.id %>/surveys/<%= survey.id %>/results">Results</a></li>
+    <li><a href="/sessions/<%= @user.id %>/surveys/<%= survey.id %>/edit">Edit</a></li>
+    <li><a href="link to delete survey">Delete</a></li>
+  </ul>
+  <br>
+<% end %>

@@ -1,0 +1,17 @@
+<!-- incorporate AJAX to show new survey question added live -->
+
+<h3>Create New Survey</h3>
+
+<form class="survey" action="/sessions/<%= @user.id %>/surveys" method="post">
+  <label for="title">Title:</label>
+  <input type="text" name="title" placeholder="Survey Title">
+  <br>
+  <span id="listOfQuestions">
+    <input name="question1" type="text" placeholder="What is your question..."><br>
+  </span>
+  <br>
+ <button id="submit">Create Survey</button>
+</form>
+<div id="right_side">
+   <button id="addQuestion">+</button>
+</div>

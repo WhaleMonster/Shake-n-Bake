@@ -17,6 +17,7 @@ gem 'rake'
 gem 'bcrypt'
 gem 'shotgun'
 gem 'faker'
+gem 'sinatra-flash'
 
 group :test do
   gem 'shoulda-matchers'

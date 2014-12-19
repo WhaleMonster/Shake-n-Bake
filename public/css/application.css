@@ -1,0 +1,171 @@
+body {
+   /*background: #f4f1e5;*/
+   background-image: url('http://i.stack.imgur.com/MtKUX.jpg');
+   color: #544738;
+   font-family: 'DaFont';
+   animation: animatedBackground 80s linear infinite;
+  -moz-animation: animatedBackground 80s linear infinite;
+  -webkit-animation: animatedBackground 80s linear infinite;
+  -ms-animation: animatedBackground 80s linear infinite;
+  -o-animation: animatedBackground 80s linear infinite;
+}
+
+keyframes animatedBackground {
+  0% { background-position: 0 0; }
+  100% { background-position: -3000px 0; }
+}
+@-moz-keyframes animatedBackground {
+  0% { background-position: 0 0; }
+  100% { background-position: -3000px 0; }
+}
+@-webkit-keyframes animatedBackground {
+  0% { background-position: 0 0; }
+  100% { background-position: -3000px 0; }
+}
+@-ms-keyframes animatedBackground {
+  0% { background-position: 0 0; }
+  100% { background-position: -3000px 0; }
+}
+@-o-keyframes animatedBackground {
+  0% { background-position: 0 0; }
+  100% { background-position: -3000px 0; }
+}
+
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  margin: 20px auto;
+  width: 800px;
+  text-align: center;
+  /*background-color: red;*/
+}
+
+#nav a{
+  font-size: 30px;
+  margin-left: 10px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#title {
+  clear: both;
+  padding-top: 60px;
+  /*text-align: center;*/
+  /*background-color: pink;*/
+}
+
+#sign-up {
+  clear: both;
+  /*background-color: blue;*/
+}
+
+/*#log-in {
+  background-color: green;
+}*/
+
+#sign-up h1 {
+  font-family: 'DaFont';
+}
+
+#log-in h1 {
+  font-family: 'DaFont'
+}
+
+input {
+  text-align: center;
+  margin-bottom: 3px;
+  /*background-color: #F1FFFF;*/
+  font-family: avenir;
+}
+
+@font-face {
+    font-family: 'DaFont';
+    src: url('3Dumb.ttf');
+}
+
+ul li {
+    /*float: left;*/
+    list-style: none;
+    margin-right: 1em;
+    font-family: 'DaFont';
+    font-size: 50px;
+    /*padding: 12px;*/
+}
+
+li a {
+    color: #544738;
+    text-decoration: none;
+    float: left;
+    font-size: 25px;
+    padding: 12px;
+}
+
+#right {
+  float: right;
+}
+
+#left a:hover {
+    color: #33CCCC;
+    /*transition*/
+    -webkit-transition:All .4s ease;
+    -moz-transition:All .5s ease;
+    -o-transition:All .5s ease;
+
+    /*transform*/
+    -webkit-transform: rotate(-10deg) scale(1.2);
+    -moz-transform: rotate(-10deg) scale(1.2);
+    -o-transform: rotate(-10deg) scale(1.2);
+}
+
+#right a:hover {
+    color: #33CCCC;
+    /*transition*/
+    -webkit-transition:All .4s ease;
+    -moz-transition:All .5s ease;
+    -o-transition:All .5s ease;
+
+    /*transform*/
+    -webkit-transform: rotate(10deg) scale(1.2);
+    -moz-transform: rotate(10deg) scale(1.2);
+    -o-transform: rotate(10deg) scale(1.2);
+}
+
+.submit {
+  font-family: "DaFont";
+  font-size: 20px;
+}
+
+.submit:hover {
+  color: #33CCCC;
+  -webkit-transform: rotate(5deg) scale(1.2);
+  -moz-transform: rotate(5deg) scale(1.2);
+  -o-transform: rotate(5deg) scale(1.2);
+}
+
+.survey {
+  float: left;
+}
+
+#right_side {
+  position: relative;
+  top: 25px;
+  float: left;
+}
+
+.sign_out {
+  float:right;
+  width: 80px;
+  height: 40px;
+  font-size: 16px;
+  margin-top: -4.5%;
+  margin-right: -3%;
+}
+
+.error {
+  font-size: 1.5em;
+}
