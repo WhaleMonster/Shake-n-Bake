@@ -1,14 +1,14 @@
 <!-- - Create Survey Button on top
 - list of surveys each with edit, delete and view results button -->
-<div class="center">
+<div class="left">
 <% @surveys.each do |survey| %>
   <ul>
     <li><a href="/sessions/<%= @user.id %>/surveys/<%= survey.id %>">Title: <%= survey.title %></a></li>
-    <li><a href="/sessions/<%= @user.id %>/surveys/<%= survey.id %>/results">Results</a></li>
-    <li><a href="/sessions/<%= @user.id %>/surveys/<%= survey.id %>/edit">Edit</a></li>
+    <li><a href="/sessions/<%= @user.id %>/surveys/<%= survey.id %>/results" id="results">Results</a></li>
+    <li><a href="/sessions/<%= @user.id %>/surveys/<%= survey.id %>/edit" id="edit">Edit</a></li>
     <li><form action="/sessions/<%= @user.id %>/surveys/<%= survey.id %>" method="post">
       <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Delete"></li>
+      <input type="submit" value="Delete" id="delete"></li>
   </ul>
 <% end %>
 </div>

@@ -1,4 +1,4 @@
-k<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!--
@@ -24,11 +24,10 @@ k<!DOCTYPE html>
     <li id="profile">Currently shakin' n' bakin': <%= current_user.username %></li>
 
     <!-- create surveys link -->
-    <li><a id="create" href="/sessions/<%= @user.id %>/surveys/new">Create New Survey(s)</a></li>
+    <li><a id="create" href="/sessions/<%= current_user.id %>/surveys/new">Create New Surveys</a></li>
 
     <!-- view all surveys -->
-    <li><a id="view" href='/sessions/<%= @user.id %>/profile'>View All Your Surveys</a></li>
-
+    <li><a id="view" href='/sessions/<%= current_user.id %>/profile'>View All Your Surveys</a></li>
     <li><form id="sign-out" action="/sessions/<%= current_user.id %>/profile" method="post">
         <input name="_method" type="hidden" value="delete" />
         <input type="submit" value="Sign Out" class="sign_out">
