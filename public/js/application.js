@@ -20,25 +20,34 @@ $(document).ready(function() {
   // });
 
 
+// when they hit delet button
+// runs a function that will delete from view
+// then call ajax and delete from teh database
 
-//   $("#surveyId delete").click(function(e) {
 
-//     e.preventDefault();
 
-//     var surveyId = $( this ).surveyId;
-//     var userId = $( this ).userId
+  $("#survey_form input.deleteQuestion").click(function(e) {
+    e.preventDefault();
+    e.stopPropagation();
 
-//   $.ajax({
-//     type: 'delete',
-//     url: "/" + userId + "/surveys/" + surveyId,
-//     datatype: "json",
-//   }).done( function(data){
 
-//     data.surveyId.remove();
 
-//   });
+    var $target = $(e.target);
+    var $li = $target.closest('li');
+    var questionId = $li.data('questionId');
+    var $form = $target.closest('form');
 
-// });
+    $.ajax({
+      type: 'delete',
+      url: $form.attr("action"),
+      data: {questionId: questionId}
+    }).done (function(response){
+      $li.remove();
+    });
+
+
+  });
+
 
 
 //   $("#surveyId edit").click(function(e) {

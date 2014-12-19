@@ -9,8 +9,6 @@ post '/sessions' do
     session[:user_id] = user.id
     redirect "/sessions/#{user.id}/profile"
   else
-    session["flash"] = []
-    session["flash"] << "Sorry, that combination is busted"
     erb :index
   end
 end
@@ -22,8 +20,6 @@ post '/users' do
     session[:user_id] = user.id
     redirect "/sessions/#{user.id}/profile" # (need to implement user url page)
   else
-    @output = user.errors.full_messages
-    session["flash"] = @output  
     erb :index
   end
 end
@@ -74,6 +70,14 @@ get '/sessions/:user_id/surveys/:survey_id/edit' do
   erb :edit
 end
 
+delete '/sessions/:user_id/:survey_id/1/edit' do
+  question_to_delete = Question.find(params[:questionId])
+  puts question_to_delete
+  question_to_delete.destroy
+
+end
+
+
 # ------------- USERS ---------------
 post '/question' do
   # new_question = Question.create(question: params[:question])
@@ -110,11 +114,11 @@ put '/sessions/:user_id/surveys/:survey_id' do
 end
 
 # delete the specific question (how to delete a question without refresh the page and redirect/AJAX)
-# delete '/sessions/:user_id/surveys/:survey_id/:question_id' do
-#   @question = Question.find(params[:question_id])
-#   @question.destroy
-#   redirect "/sessions/#{params[:user_id]}/surveys/#{params[:survey_id]}"
-# end
+delete '/sessions/:user_id/surveys/:survey_id/:question_id' do
+  @question = Question.find(params[:question_id])
+  @question.destroy
+  # redirect "/sessions/#{params[:user_id]}/surveys/#{params[:survey_id]}"
+end
 
 # delete the specific survey
 delete '/sessions/:user_id/surveys/:survey_id' do
