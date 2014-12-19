@@ -11,6 +11,7 @@ post '/sessions' do
   else
     flash[:error] = "Sorry, that combination is busted"
     redirect '/'
+
   end
 end
 
@@ -73,6 +74,22 @@ get '/sessions/:user_id/surveys/:survey_id/edit' do
   erb :edit
 end
 
+# delete a specific survey link
+
+delete "/sessions/:user_id/surveys/:survey_id" do
+  survey_to_delete = Survey.find(params[:surveyId])
+  survey_to_delete.destroy
+end
+
+
+# delete a question from a specific survey
+
+delete '/sessions/:user_id/questions/:question_id' do
+  question_to_delete = Question.find(params[:question_id])
+  question_to_delete.destroy
+end
+
+
 # ------------- USERS ---------------
 
 # Show survey results after user logged in
@@ -103,11 +120,11 @@ put '/sessions/:user_id/surveys/:survey_id' do
 end
 
 # delete the specific question (how to delete a question without refresh the page and redirect/AJAX)
-# delete '/sessions/:user_id/surveys/:survey_id/:question_id' do
-#   @question = Question.find(params[:question_id])
-#   @question.destroy
-#   redirect "/sessions/#{params[:user_id]}/surveys/#{params[:survey_id]}"
-# end
+delete '/sessions/:user_id/surveys/:survey_id/:question_id' do
+  @question = Question.find(params[:question_id])
+  @question.destroy
+  # redirect "/sessions/#{params[:user_id]}/surveys/#{params[:survey_id]}"
+end
 
 # delete the specific survey
 delete '/sessions/:user_id/surveys/:survey_id' do
