@@ -24,9 +24,9 @@ $(document).ready(function() {
 // runs a function that will delete from view
 // then call ajax and delete from teh database
 
+// Delete each question from the survey
 
-
-  $("#survey_form input.deleteQuestion").click(function(e) {
+  $("#survey_form a.deleteQuestion").click(function(e) {
     e.preventDefault();
     e.stopPropagation();
 
@@ -37,9 +37,11 @@ $(document).ready(function() {
     var questionId = $li.data('questionId');
     var $form = $target.closest('form');
 
+    // console.log($(this).attr('href'));
+
     $.ajax({
       type: 'delete',
-      url: $form.attr("action"),
+      url: $(this).attr('href'),
       data: {questionId: questionId}
     }).done (function(response){
       $li.remove();
@@ -47,6 +49,32 @@ $(document).ready(function() {
 
 
   });
+
+
+  // Delete each survey from the lsit
+
+  $("#listSurveys input.deleteSurvey").click(function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    var $target = $(e.target);
+    var $currentSurvey = $target.closest('ul');
+    var $form = $target.closest('form');
+    var surveyId = $form.data('surveyId');
+
+
+    $.ajax({
+      type: 'delete',
+      url: $form.attr("action"),
+      data: {surveyId: surveyId}
+    }).done (function(response){
+      $currentSurvey.remove();
+    });
+
+
+  });
+
+
 
 
 

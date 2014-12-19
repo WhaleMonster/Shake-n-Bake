@@ -6,9 +6,14 @@
     <li><a href="/sessions/<%= @user.id %>/surveys/<%= survey.id %>"><%= survey.title %></a></li>
     <li><a href="/sessions/<%= @user.id %>/surveys/<%= survey.id %>/results">Results</a></li>
     <li><a href="/sessions/<%= @user.id %>/surveys/<%= survey.id %>/edit">Edit</a></li>
-    <li><form action="/sessions/<%= @user.id %>/surveys/<%= survey.id %>" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Delete"></li>
+
+    <li>
+      <form data-survey-id="<%= survey.id %>" id="listSurveys" action="/sessions/<%= @user.id %>/surveys/<%= survey.id %>" method="post">
+       <input type="hidden" name="_method" value="delete">
+        <input type="button" class="deleteSurvey" value="Delete">
+      </form>
+    </li>
+
   </ul>
   <br>
 <% end %>
