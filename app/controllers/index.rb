@@ -12,7 +12,6 @@ post '/sessions' do
   else
     flash[:error] = "Sorry, that combination is busted"
     redirect '/'
-
   end
 end
 
