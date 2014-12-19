@@ -1,6 +1,10 @@
 class User <ActiveRecord::Base
 	has_many :surveys
 
+  validates :username, :presence => true
+  validates :email, :presence => true
+  validates :password_hash, :presence => true
+
   include BCrypt
 
   def password

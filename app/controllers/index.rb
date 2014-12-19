@@ -3,33 +3,27 @@ get "/" do
 end
 
 # ------------- SESSIONS --------------
-# shows sign in page if user isn't logged in
-get '/sessions/new' do
-  erb :index
-end
-
-# creates a new user in the database and sets a session
+# checks the database to see if user exists
 post '/sessions' do
-  if user = User.authenticate_with(params[:user])
+  if user = User.authenticate(params)
     session[:user_id] = user.id
     redirect "/sessions/#{user.id}/profile"
   else
+    session["flash"] = []
+    session["flash"] << "Sorry, that combination is busted"
     erb :index
   end
 end
 
-# directs the user to the the index page to sign up
-get '/users/new' do
-  erb :index
-end
-
 # create new user and redirect to user homepage
 post '/users' do
-  user = User.create(params[:user])
+  user = User.create(params)
   if user.save
     session[:user_id] = user.id
     redirect "/sessions/#{user.id}/profile" # (need to implement user url page)
   else
+    @output = user.errors.full_messages
+    session["flash"] = @output  
     erb :index
   end
 end
@@ -61,7 +55,7 @@ get '/sessions/:user_id/surveys/:survey_id' do
   erb :survey
 end
 
-# create a new survey
+# posting a new survey
 post '/sessions/:user_id/surveys' do
   new_survey = Survey.create(title: params[:title])
   current_user.surveys << new_survey
@@ -90,22 +84,8 @@ post '/question' do
   # end
 end
 
-delete '/sessions/:user_id/profile' do
-  session[:user_id] = nil
-  redirect '/'
-end
-
-get '/sessions/:user_id/surveys/:survey_id' do
-end
-
-get '/sessions/:user_id/surveys/:survey_id/edit' do
-end
-
-
-delete '/sessions/:user_id/surveys/:survey_id/edit' do
-end
-
 get '/sessions/:user_id/surveys/:survey_id/results' do
+  "My name is Kevin and there's a part in muh pants"
 end
 
 get '/sessions/surveys/:survey_id' do
