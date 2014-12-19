@@ -35,6 +35,12 @@ post '/users' do
   end
 end
 
+# signs out a user and detroys the session
+delete '/sessions/:id' do
+  session[:user_id] = nil
+  redirect '/'
+end
+
 # ----------- USER PROFILE PAGE ----------------
 
 get '/sessions/:user_id/profile' do
