@@ -1,0 +1,13 @@
+<h3>Title: <%= @survey.title %></h3>
+
+<ol>
+  <% @survey.questions.each do |question| %>
+  <li><%= question.question %></li>
+  <% end %>
+</ol>
+
+<a href="/sessions/<%= @user.id %>/surveys/<%= @survey.id %>/edit">Edit</a>
+<form action="/sessions/<%= @user.id %>/surveys/<%= @survey.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete">
+</form>
