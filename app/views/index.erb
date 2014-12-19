@@ -48,3 +48,17 @@
   <%= flash[:error] %>
   </div>
 </div>
+
+<h2>Latest Surveys:</h2>
+<div id="show-survey">
+  <ul>
+    <% @surveys.each do |survey| %>
+      <li>
+        <a href= "/surveys/<%= survey.id %>"><%= survey.title %></a>
+        Created at: <%= survey.created_at %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+
