@@ -166,3 +166,7 @@ li a {
   margin-top: -4.5%;
   margin-right: -3%; 
 }
+
+.error {
+  font-size: 1.5em;
+}

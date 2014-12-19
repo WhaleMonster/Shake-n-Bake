@@ -7,9 +7,10 @@ end
 post '/sessions' do
   if user = User.authenticate(params)
     session[:user_id] = user.id
-    p user
     redirect "/sessions/#{user.id}/profile"
   else
+    session["flash"] = []
+    session["flash"] << "Sorry, that combination is busted"
     erb :index
   end
 end
@@ -21,6 +22,8 @@ post '/users' do
     session[:user_id] = user.id
     redirect "/sessions/#{user.id}/profile" # (need to implement user url page)
   else
+    @output = user.errors.full_messages
+    session["flash"] = @output  
     erb :index
   end
 end
