@@ -23,7 +23,7 @@
     <!-- please align signed in as and user name correctly and put sign out button to the right most space -->
    <ul id="nav">
     <% if current_user %>
-    <li>Signed in as: <a href="/sessions/<%= current_user.id %>/profile"><%= current_user.username %></a></li>
+    <li>Signed in as: <a href="/<%= current_user.id %>/profile"><%= current_user.username %></a></li>
 
     <!-- create surveys link -->
     <li><a href="some route">Create New Surveys</a></li>
@@ -31,7 +31,7 @@
     <!-- view all surveys -->
     <li><a href="some route">View All Your Surveys</a></li>
 
-    <li><form id="sign-out" action="/sessions/<%= current_user.id %>" method="post">
+    <li><form id="sign-out" action="/<%= current_user.id %>/profile" method="post">
         <input name="_method" type="hidden" value="delete" />
         <input type="submit" value="Sign Out">
       </form>
