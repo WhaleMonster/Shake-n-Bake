@@ -1,88 +1,106 @@
-get '/' do
-  if session[:id]
-      @user = User.find_by(session[:id])
-    end
-  @users = User.all
+get "/" do
   erb :index
 end
 
-#----------- SESSIONS -----------
-
+# ------------- SESSIONS --------------
+# shows sign in page if user isn't logged in
 get '/sessions/new' do
-  # render sign-in page
-  erb :sign_in
+  erb :index
 end
 
+# creates a new user in the database and sets a session
 post '/sessions' do
-  @user = User.find_by(email: params[:email])
-  if @user && @user.authenticate(params[:password])
-    session[:user_id] = @user.id
-    redirect '/'
+  if user = User.authenticate_with(params[:user])
+    session[:user_id] = user.id
+    redirect "/sessions/#{user.id}/profile"
   else
-    redirect '/sessions/new'
-  end
-  # sign-in
-end
-
-delete '/sessions/:id' do
-  # sign-out -- invoked
-  session[:user_id] = nil
-  redirect '/'
-end
-
-#----------- USERS -----------
-
-get '/users/new' do
-  # render sign-up page
-  erb :sign_up
-end
-
-post '/users' do
-  # sign-up a new user
-  @user = User.new(params[:user])
-
-  if @user.save
-    session[:user_id] = @user.id
-    redirect '/'
-  else
-    redirect '/'
+    erb :index
   end
 end
 
 # ------------- USERS ---------------
-delete '/:user_id/profile' do
+# directs the user to the the index page to sign up
+get '/users/new' do
+  erb :index
+end
+
+# create new user and redirect to user homepage
+post '/users' do
+  user = User.create(params[:user])
+  if user.save
+    session[:user_id] = user.id
+    redirect "/sessions/#{user.id}/profile" # (need to implement user url page)
+  else
+    erb :index
+  end
+end
+
+# signs out a user and detroys the session
+delete '/sessions/:user_id/profile' do
   session[:user_id] = nil
   redirect '/'
 end
 
-get '/:user_id/profile' do
+# ----------- USER PROFILE PAGE ----------------
+
+get '/sessions/:user_id/profile' do
+  @user = User.find(params[:user_id])
+  @surveys = @user.surveys
+  erb :profile
 end
 
-get '/:user_id/surveys/:survey_id' do
+# ------------ CREATE NEW SURVEY PAGE -----------
+
+get '/sessions/:user_id/surveys/new' do
+  @user = User.find(params[:user_id])
+  erb :new
 end
 
-post '/:user_id/surveys/:survey_id/new' do
+post '/sessions/:user_id/surveys' do
+  new_survey = Survey.create(title: params[:title])
+  current_user.surveys << new_survey
+  params.keys.each do |key|
+    if key.include?('question')
+     Question.create(question: params[key], survey_id: new_survey.id)
+    end
+  end
+
+end
+# ------------- USERS ---------------
+post '/question' do
+  # new_question = Question.create(question: params[:question])
+  # if request.xhr?
+  #   erb :_question, layout:false, locals: {question: new_question}
+  # else
+  #   redirect "/sessions/#{current_user.id}/surveys/new"
+  # end
 end
 
-get '/:user_id/surveys/:survey_id/edit' do
+delete '/sessions/:user_id/profile' do
+  session[:user_id] = nil
+  redirect '/'
 end
 
-put '/:user_id/surveys/:survey_id/edit' do
+get '/sessions/:user_id/surveys/:survey_id' do
 end
 
-delete '/:user_id/surveys/:survey_id/edit' do
+get '/sessions/:user_id/surveys/:survey_id/edit' do
 end
 
-get '/:user_id/surveys/:survey_id/results' do
+put '/sessions/:user_id/surveys/:survey_id/edit' do
 end
 
-get '/surveys/:survey_id' do
+delete '/sessions/:user_id/surveys/:survey_id/edit' do
+end
+
+get '/sessions/:user_id/surveys/:survey_id/results' do
+end
+
+get '/sessions/surveys/:survey_id' do
 end
 
 get '/merci' do
 end
-
-
 
 
 
