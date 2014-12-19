@@ -151,7 +151,3 @@ post '/surveys/:survey_id' do
   redirect '/'
   # should flash some message for thanking you taking the survey and here are some more survey you can take
 end
-
-
-
-

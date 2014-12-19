@@ -1,4 +1,5 @@
-<h3>Edit Survey</h3>
+<div class="center">
+  <h1>Edit Survey</h1>
 
 <form id="survey_form" action="/sessions/<%= @user.id %>/surveys/<%= @survey.id %>" method="post">
   <input type="hidden" name="_method" value="put">
@@ -21,3 +22,4 @@
   <input type="submit" value="Update Entry">
 
 </form>
+
