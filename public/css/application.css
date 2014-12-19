@@ -80,6 +80,28 @@ ul {
   font-family: 'DaFont'
 }
 
+#profile {
+  padding-top: 20px;
+  /*background-color: pink;*/
+}
+
+#create {
+  padding-left: 75px;
+  padding-top: 20px;
+  /*background-color: pink;*/
+}
+
+#view {
+  padding-left: 50px;
+  padding-top: 20px;
+  /*background-color: pink;*/
+}
+
+.center {
+  margin: 100px auto;
+  text-align: center;
+}
+
 input {
   text-align: center;
   margin-bottom: 3px;
@@ -92,20 +114,24 @@ button {
 }
 
 ul li {
-    /*float: left;*/
-    list-style: none;
-    margin-right: 1em;
-    font-family: 'DaFont';
-    font-size: 50px;
-    /*padding: 12px;*/
+  list-style: none;
+  margin-right: 1em;
+  font-family: 'DaFont';
+  font-size: 50px;
 }
 
 li a {
-    color: #544738;
-    text-decoration: none;
-    float: left;
-    font-size: 25px;
-    padding: 12px;
+  color: #544738;
+  text-decoration: none;
+  float: left;
+  font-size: 25px;
+  padding: 12px;
+}
+
+.li-edit {
+  padding: 0;
+
+  background-color: pink;
 }
 
 #right {
@@ -165,6 +191,7 @@ li a {
 #addQuestion {
   font-family: "DaFont";
   font-size: 20px;
+  /*text-align: center;*/
 }
 
 #addQuestion:hover {
@@ -177,8 +204,9 @@ li a {
 #edit {
   font-family: "3Dumb";
   font-size: 20px;
-  padding-bottom: 3px;
+  padding-bottom: 5px;
   text-decoration: none;
+  display: inline-block;
 }
 
 #edit:hover {
@@ -189,7 +217,7 @@ li a {
 }
 
 #delete {
-  font-family: "Da";
+  font-family: "DaFont";
   font-size: 20px;
 }
 
@@ -200,33 +228,54 @@ li a {
   -o-transform: scale(1.2);
 }
 
-.survey {
-  float: left;
+#update {
+  font-family: "DaFont";
+  font-size: 20px;
+}
+
+#update:hover {
+  color: #33CCCC;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
 }
 
 #right_side {
   position: relative;
-  top: 25px;
-  float: left;
+  /*top: 25px;*/
+  /*float: left;*/
 }
 
-.outer-survey-list {
+.outer {
   width: 100%;
+  /*background-color: pink;*/
 }
 
-.inner-survey-list {
-  width: 75%;
+.inner {
+  width: 50%;
   margin: 0 auto;
   text-align: left;
+  /*background-color: red;*/
 }
 
 .sign_out {
   float:right;
-  width: 80px;
-  height: 40px;
-  font-size: 16px;
-  margin-top: -4.5%;
-  margin-right: -3%;
+  padding: 7px;
+  /*font-size: 15px;*/
+  margin-top: -8%;
+  margin-right: -1%;
+}
+
+.sign_out {
+  font-family: "DaFont";
+  font-size: 20px;
+}
+
+.sign_out:hover {
+  color: #33CCCC;
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -o-transform: scale(1.2);
 }
 
 .error {
