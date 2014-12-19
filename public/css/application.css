@@ -1,20 +1,12 @@
-/** {
-  padding: 0;
-  margin: 0;
-}*/
-
 body {
    background: #f4f1e5;
    color: #544738;
-   /*font-family: helvetica, sans-serif;*/
 }
-
 
 .container {
   margin: 20px auto;
   width: 800px;
   text-align: center;
-  /*padding-top: 20px;*/
   /*background-color: red;*/
 }
 
@@ -23,24 +15,26 @@ ul {
 }
 
 #title {
-  /*background-color: pink;*/
   clear: both;
-  padding-top: 70px;
+  padding-top: 60px;
   /*text-align: center;*/
+  /*background-color: pink;*/
 }
 
 #sign-up {
-  /*background-color: blue;*/
   clear: both;
+  /*background-color: blue;*/
 }
 
-#log-in {
-  /*background-color: green;*/
-}
-
-/*.label {
-  background-color: blue;
+/*#log-in {
+  background-color: green;
 }*/
+
+input {
+  text-align: center;
+  margin-bottom: 3px;
+  /*background-color: #F1FFFF;*/
+}
 
 ul li {
     /*float: left;*/
@@ -59,7 +53,11 @@ li a {
     padding: 12px;
 }
 
-li a:hover {
+#right {
+  float: right;
+}
+
+#left a:hover {
     color: #33CCCC;
     /*transition*/
     -webkit-transition:All .4s ease;
@@ -70,6 +68,19 @@ li a:hover {
     -webkit-transform: rotate(-10deg) scale(1.2);
     -moz-transform: rotate(-10deg) scale(1.2);
     -o-transform: rotate(-10deg) scale(1.2);
+}
+
+#right a:hover {
+    color: #33CCCC;
+    /*transition*/
+    -webkit-transition:All .4s ease;
+    -moz-transition:All .5s ease;
+    -o-transition:All .5s ease;
+
+    /*transform*/
+    -webkit-transform: rotate(10deg) scale(1.2);
+    -moz-transform: rotate(10deg) scale(1.2);
+    -o-transform: rotate(10deg) scale(1.2);
 }
 
 .submit {

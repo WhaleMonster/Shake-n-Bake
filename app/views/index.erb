@@ -7,15 +7,15 @@
       Sign Up
     </h1>
     <p>
-    <form method="post" action="/users">
-      <label class="label" for="name">Username: </label>
-      <input type="text" name="user[username]">
+    <form method="post" action="/user/new">
+      <label class="label" for="name"></label>
+      <input type="text" name="user[username]" placeholder="User Name">
       <br>
-      <label class="label" for="email">Email: </label>
-      <input type="email" name="user[email]">
+      <label class="label" for="email"></label>
+      <input type="email" name="user[email]" placeholder="Email">
       <br>
-      <label class="label" for="password">Password: </label>
-      <input type="password" name="user[password]">
+      <label class="label" for="password"></label>
+      <input type="password" name="user[password]" placeholder="Password">
       <br>
       <br>
       <div class="submit"><input type="submit" value="Sign Me Up!"></div>
@@ -29,12 +29,12 @@
       Log In
     </h1>
     <p>
-    <form method="post" action="/sessions">
-      <label class="label" for="email">Email: </label>
-      <input type="email" name="user[email]">
+    <form method="post" action="/user">
+      <label class="label" for="email"></label>
+      <input type="email" name="user[email]" placeholder="User Name">
       <br>
-      <label class="label" for="password">Password: </label>
-      <input type="password" name="user[password]">
+      <label class="label" for="password"></label>
+      <input type="password" name="user[password]" placeholder="Password">
       <br>
       <br>
       <div class="submit"><input type="submit" value="Sign Me In!"></div>
