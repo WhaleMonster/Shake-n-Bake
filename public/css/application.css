@@ -106,7 +106,7 @@ ul {
 input {
   text-align: center;
   margin-bottom: 3px;
-  /*font-family: helvetica;*/
+  font-family: avenir;
 }
 
 button {
@@ -126,6 +126,18 @@ li a {
   float: left;
   font-size: 25px;
   padding: 12px;
+}
+
+.left #delete{
+  font-family: avenir;
+}
+
+.left #update{
+  font-family: avenir;
+}
+
+.left #submit {
+  font-family: avenir;
 }
 
 
@@ -262,7 +274,7 @@ li a {
 }
 
 .sign_out {
-  font-family: "DaFont";
+  font-family: avenir;
   font-size: 20px;
   float:right;
   padding: 7px;
@@ -279,4 +291,12 @@ li a {
 
 .error {
   font-size: 1.5em;
+}
+
+.public_survey {
+  padding: 20px;
+}
+
+.public_survey #submit {
+  font-family: avenir;
 }

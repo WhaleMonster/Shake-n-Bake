@@ -11,15 +11,6 @@ $(document).ready(function() {
 
   });
 
-
-  // $("#submit").click(function(){
-  //     console.log($("#1").html())
-
-  //     $.ajax ()
-
-  // });
-
-
 // when they hit delet button
 // runs a function that will delete from view
 // then call ajax and delete from teh database
@@ -46,10 +37,7 @@ $(document).ready(function() {
     }).done (function(response){
       $li.remove();
     });
-
-
   });
-
 
   // Delete each survey from the lsit
 
@@ -70,46 +58,17 @@ $(document).ready(function() {
     }).done (function(response){
       $currentSurvey.remove();
     });
-
-
   });
 
+  $('.sign_out').on('click', function(e){
+    e.preventDefault();
+    $('#sound').get(0).play();
+    setTimeout(function(){
+      window.location.href = '/';
+    }, 4000);
+    console.log('1')
+  })
 
-
-
-
-//   $("#surveyId edit").click(function(e) {
-
-//     e.preventDefault();
-
-//     var surveyId = $( this ).surveyId;
-//     var userId = $( this ).userId
-
-//   $.ajax({
-//     type: 'put',
-//     url: "/" + userId + "/surveys/" + surveyId + "/edit"
-//     datatype: "json",
-//   })
-
-// });
-
-  // $("#surveyId create").click(function(e) {
-
-  //   e.preventDefault();
-
-  //   var surveyId = $( this ).surveyId;
-  //   var userId = $( this ).userId
-  //   var submitBtn = $(this).submitBtn
-
-  // $.ajax({
-  //   type: 'get',
-  //   url: "/" + userId + "surveys/new",
-  //   datatype: "json",
-
-  // }).done(function (){
-  //   // append data here
-
-  // })
 
 });
 
