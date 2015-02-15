@@ -30,7 +30,7 @@
     <li><a id="view" href='/sessions/<%= current_user.id %>/profile'>View All Your Surveys</a></li>
     <li><form id="sign-out" action="/sessions/<%= current_user.id %>/profile" method="post">
         <input name="_method" type="hidden" value="delete" />
-        <input type="submit" value="Sign Out" class="sign_out">
+        <input type="submit" value="Sign Out" class="sign_out" >
       </form>
     </li>
 <!--  <% #else %>

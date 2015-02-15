@@ -1,6 +1,13 @@
 $(document).ready(function() {
-  var idNum = 1
 
+
+$('.sign_out').on('click', function(e){
+  e.preventDefault();
+  $('#sound').get(0).play();
+  setTimeout(function () {
+       $('#sign-out').submit(); //will redirect to your blog page (an ex: blog.html)
+    }, 4000);
+});
 
   $('#addQuestion').click(function(e){
     idNum += 1;
@@ -69,6 +76,7 @@ $(document).ready(function() {
     console.log('1')
   })
 
+>>>>>>> 59ee96c7c599c60e7f715c0c3d9381bc5c1d47c8
 
 });
 
