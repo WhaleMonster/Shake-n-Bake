@@ -30,7 +30,7 @@
 
     <li><form id="sign-out" action="/sessions/<%= current_user.id %>/profile" method="post">
         <input name="_method" type="hidden" value="delete" />
-        <input type="submit" value="Sign Out" class="sign_out">
+        <input type="submit" value="Sign Out" class="sign_out" >
       </form>
     </li>
 <!--  <% #else %>
@@ -43,5 +43,6 @@
 
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="/js/application.js"></script>
+  <audio id="sound" src="http://wavcentral.com/sounds/televis/price_is_right/tpirhorns.mp3", type='audio/mpeg' preload="auto"></audio>
 </body>
 </html>
