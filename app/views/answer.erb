@@ -1,0 +1,13 @@
+<br>
+<br>
+<div class="public_survey">
+<h1>Title: <%= @survey.title %></h1>
+<form class="survey" action="/surveys/<%= @survey.id %>" method="post">
+  <ol>
+    <% @survey.questions.each do |question| %>
+    <li><%= question.question %><br>
+      <input type="text" name="answer<%= question.id %>" placeholder="Your answer..." /></li>
+    <% end %>
+  </ol>
+ <button id="submit">Submit</button>
+</form>

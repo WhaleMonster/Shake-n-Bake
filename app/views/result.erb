@@ -1,0 +1,15 @@
+<div class="left">
+<h1>Title: <%= @survey.title %></h1>
+<ol>
+  <% @survey.questions.each do |question| %>
+    <li><%= question.question %>
+      <ol>
+        <% question.responses.each do |response| %>
+          <li><%= response.response %></li>
+        <% end %>
+      </ol>
+    </li>
+  <% end %>
+</ol>
+
+</div>
