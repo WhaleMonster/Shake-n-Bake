@@ -1,6 +1,6 @@
 body {
    /*background: #f4f1e5;*/
-   background-image: url('http://i.stack.imgur.com/MtKUX.jpg');
+   background-image: url('../imgs/bg.jpg');
    color: #544738;
    /*font-family: 'DaFont';*/
    animation: animatedBackground 80s linear infinite;
@@ -33,7 +33,7 @@ keyframes animatedBackground {
 
 @font-face {
     font-family: 'DaFont';
-    src: url('3Dumb.ttf');
+    src: url('../css/3Dumb.ttf');
 }
 
 a {
