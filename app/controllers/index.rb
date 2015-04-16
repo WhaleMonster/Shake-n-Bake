@@ -101,9 +101,6 @@ end
 get '/sessions/surveys/:survey_id' do
 end
 
-# get '/merci' do
-# end
-
 # update the survey changes from edit page
 put '/sessions/:user_id/surveys/:survey_id' do
   @edit_survey = Survey.find(params[:survey_id])
