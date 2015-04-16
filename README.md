@@ -19,5 +19,7 @@ To take a survey, all someone needs to do is log out and go to the landing page 
 
 Thank you all and hope you enjoy this app.
 
+Here is the link: [http://shake-n-bake.herokuapp.com/](http://shake-n-bake.herokuapp.com/)
+
 
 
