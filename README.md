@@ -1,4 +1,4 @@
-# Shake-n-Bake
+# [Shake-n-Bake](http://shake-n-bake.herokuapp.com/)
 ##### A Survey Monkey clone
 
 ![Alt text](public/imgs/shake-landing.png)
